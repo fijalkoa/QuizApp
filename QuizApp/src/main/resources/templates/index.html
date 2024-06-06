@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charmQ</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <a href="/api/v1/home" class="logo-container">
+        <img src="/images/quiz_logo_heart_icon.svg" alt="Logo" class="logo-image">
+        <div class="logo-text">charmQ</div>
+    </a>
+    <nav>
+        <a href="/api/v1/home">Home</a>
+        <a href="/api/v1/quizzes">Quizzes</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="content">
+    <aside>
+        <ul>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/quizzes">Quizzes</a></li>
+            <li><a href="#">Read more</a></li>
+        </ul>
+    </aside>
+    <main>
+        <div class="quiz-container">
+            <div th:each="quiz : ${quizzes}" class="quiz-card">
+                <h2 th:text="${quiz.title}">Quiz Title</h2>
+                <img th:src="${quiz.image}" alt="Obraz">
+                <button th:attr="data-title=${quiz.title}, data-description=${quiz.description}, data-image=${quiz.image}, data-url=@{/api/v1/quizzes/{id}(id=${quiz.quizId})}">&#709;</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="quick-links">
+        <a href="/api/v1/home">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+    <div class="social-links">
+        <span>Connect with us:</span>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100006842311562https://www.facebook.com/profile.php?id=100006842311562"><img src="/images/social-media-icons/facebook_logo_icon.svg" alt="Facebook"></a>
+            <a href="https://x.com/AFijalkowska1"><img src="/images/social-media-icons/x_logo_icon.svg" alt="Twitter"></a>
+            <a href="https://www.instagram.com/anka_fij/"><img src="/images/social-media-icons/instagram_logo_icon.svg" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<div id="quiz-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modal-quiz-title"></h2>
+        <img id="modal-quiz-image" class="quiz-image" src="" alt="Quiz Image">
+        <p id="modal-quiz-description"></p>
+        <a id="start-quiz-button" href="#" class="start-quiz-button">Rozpocznij Quiz</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById("quiz-modal");
+        var span = document.getElementsByClassName("close-button")[0];
+
+        document.querySelectorAll('.quiz-card button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var title = this.getAttribute('data-title');
+                var description = this.getAttribute('data-description');
+                var image = this.getAttribute('data-image');
+                var url = this.getAttribute('data-url');
+
+                document.getElementById("modal-quiz-title").innerText = title;
+                document.getElementById("modal-quiz-description").innerText = description;
+                // document.getElementById("modal-quiz-image").src = image;
+                document.getElementById("start-quiz-button").href = url;
+
+                modal.style.display = "block";
+            });
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

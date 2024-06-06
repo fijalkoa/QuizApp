@@ -22,4 +22,5 @@ public class Quiz {
     private String description;
     private List<Question> questions;
     private List<Result> results;
+    private String image;
 }
