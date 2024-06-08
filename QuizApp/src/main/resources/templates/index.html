@@ -62,6 +62,7 @@
         <h2 id="modal-quiz-title"></h2>
         <img id="modal-quiz-image" class="quiz-image" src="" alt="Quiz Image">
         <p id="modal-quiz-description"></p>
+<!--        <a id="start-quiz-button" th:href="@{/api/v1/quizzes/{quizId}(quizId=${quiz.quizId})}" class="start-quiz-button">Rozpocznij Quiz</a>-->
         <a id="start-quiz-button" href="#" class="start-quiz-button">Rozpocznij Quiz</a>
     </div>
 </div>
@@ -80,7 +81,7 @@
 
                 document.getElementById("modal-quiz-title").innerText = title;
                 document.getElementById("modal-quiz-description").innerText = description;
-                // document.getElementById("modal-quiz-image").src = image;
+                document.getElementById("modal-quiz-image").src = image;
                 document.getElementById("start-quiz-button").href = url;
 
                 modal.style.display = "block";

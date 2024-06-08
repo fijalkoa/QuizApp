@@ -204,7 +204,7 @@ footer {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 50px auto 0;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -225,11 +225,30 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+.quiz-form-image-background {
+    position: absolute;
+    top: 70px; /* Adjust based on the header height */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px); /* Adjust based on the header height */
+    z-index: 1;
+    overflow: hidden;
+}
 
-/*.quiz-image {*/
-/*    max-width: 100%;*/
-/*    height: auto;*/
-/*}*/
+.quiz-form-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+}
+
+.quiz-image {
+    max-width: 50%; /* Zmniejsz maksymalną szerokość obrazu */
+    display: block; /* Ustaw obraz jako blokowy element, aby można go było wycentrować */
+    margin: 0 auto; /* Wycentruj obraz */
+    height: auto;
+    object-fit: contain; /* Dopasuj obraz do wymiarów kontenera zachowując proporcje */
+}
 
 .start-quiz-button {
     margin-top: 20px;
@@ -244,13 +263,80 @@ footer {
 }
 
 .quiz-card img {
-    max-width: 100%;
+    max-width: 50%;
     max-height: 150px; /* Dostosuj maksymalną wysokość obrazu według potrzeb */
     width: auto; /* Zapewnij, że szerokość obrazu jest automatycznie dostosowywana */
     height: auto; /* Zapewnij, że wysokość obrazu jest automatycznie dostosowywana */
+    display: block; /* Ustaw obraz jako blokowy element, aby można go było wycentrować */
+    margin: 0 auto; /* Wycentruj obraz */
     object-fit: contain; /* Dopasuj obraz do wymiarów kontenera zachowując proporcje */
     border-top-left-radius: 12px; /* Zaokrąglony górny lewy róg */
     border-top-right-radius: 12px; /* Zaokrąglony górny prawy róg */
 }
 
+.quiz-form-container {
+    background-color: white; /* Beige background color */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
 
+.quiz-score-container {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+    margin: 10px auto auto;
+}
+
+.quiz-score-container h2 {
+    margin-top: 0;
+}
+
+.quiz-score {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.quiz-image-score-container {
+    margin: 20px 0;
+}
+
+.quiz-form-container h2, .quiz-container p {
+    text-align: center;
+}
+
+.quiz-form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-form-card {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.quiz-form-card h3 {
+    margin-bottom: 10px;
+}
+
+.quiz-form-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-form-card li {
+    margin-bottom: 10px;
+}
+
+.quiz-form-card input[type="radio"] {
+    margin-right: 10px;
+}

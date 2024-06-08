@@ -13,4 +13,5 @@ public class Result {
     private String range;
     private String result;
     private String description;
+    private int score;
 }
