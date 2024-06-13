@@ -1,38 +1,42 @@
 package dev.fijalkoa.Quizes;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuizService {
 
+    private static final Logger logger = LoggerFactory.getLogger(QuizService.class);
+
     @Autowired
     private QuizRepository quizRepository;
     public List<Quiz> allQuizzes() {
-        return quizRepository.findAll();
+        try {
+            List<Quiz> quizzes = quizRepository.findAll();
+            logger.info("Found " + quizzes.size() + " quizzes");
+            return quizzes;
+        } catch (Exception e) {
+            logger.error("Error occurred while fetching quizzes", e);
+            throw new RuntimeException("Unable to fetch quizzes at this time. " +
+                    "Check your connection with database", e);
+        }
+
     }
 
-    public Optional<Quiz> singleQuiz(int quizId) {
-        return quizRepository.findQuizByQuizId(quizId);
+    public Quiz singleQuiz(int quizId) {
+        return quizRepository.findQuizByQuizId(quizId)
+                .orElseThrow(() -> new IllegalArgumentException("Quiz with id: " + quizId + " not found"));
     }
 
     public Result calculateResult(QuizSubmissionDTO submission) {
-        Optional<Quiz> quizOptional = quizRepository.findQuizByQuizId(submission.getQuizId());
-        if (quizOptional.isEmpty()) {
-            throw new IllegalArgumentException("Quiz not found");
-        }
-        Quiz quiz = quizOptional.get();
-        int totalScore = 0;
+        Quiz quiz = quizRepository.findQuizByQuizId(submission.getQuizId())
+                .orElseThrow(() -> new IllegalArgumentException("Quiz not found"));
 
-        for (Question question : quiz.getQuestions()) {
-            Options selectedOption = submission.getAnswers().get(question.getQuestionId());
-            if (selectedOption != null) {
-                totalScore += question.getScores().get(selectedOption);
-            }
-        }
+        int totalScore = calculateTotalScore(submission, quiz.getQuestions());
 
         for (Result result : quiz.getResults()) {
             if (totalScore > Integer.parseInt(result.getRange().split(" ")[1])) {
@@ -41,7 +45,17 @@ public class QuizService {
             }
         }
 
-        System.out.println("total score: " + totalScore);
         throw new IllegalArgumentException("No matching result found for the score");
+    }
+
+    private int calculateTotalScore(QuizSubmissionDTO submission, List<Question> questions) {
+        int totalScore = 0;
+        for (Question question : questions) {
+            Options selectedOption = submission.getAnswers().get(question.getQuestionId());
+            if (selectedOption != null) {
+                totalScore += question.getScores().get(selectedOption);
+            }
+        }
+        return totalScore;
     }
 }

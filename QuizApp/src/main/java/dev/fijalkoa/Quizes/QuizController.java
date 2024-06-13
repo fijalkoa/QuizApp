@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/api/v1/quizzes")
@@ -22,17 +21,18 @@ public class QuizController {
     }
     @GetMapping("/{quizId}")
     public String getSingleQuiz(@PathVariable int quizId, Model model) {
-        Optional<Quiz> quiz = quizService.singleQuiz(quizId);
-        model.addAttribute("quiz", quiz.get());
+        Quiz quiz = quizService.singleQuiz(quizId);
+        model.addAttribute("quiz", quiz);
         return "quizForm";
     }
 
     @PostMapping("/submit")
     public String submitQuiz(@ModelAttribute QuizSubmissionDTO submissionDTO, Model model) {
         Result result = quizService.calculateResult(submissionDTO);
-        Optional<Quiz> quiz = quizService.singleQuiz(submissionDTO.getQuizId());
+        Quiz quiz = quizService.singleQuiz(submissionDTO.getQuizId());
         model.addAttribute("result", result);
-        model.addAttribute("quiz", quiz.get());
+        model.addAttribute("quiz", quiz);
         return "score";
     }
+
 }
