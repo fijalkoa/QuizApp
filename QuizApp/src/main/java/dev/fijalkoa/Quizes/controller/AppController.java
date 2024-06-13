@@ -1,4 +1,4 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

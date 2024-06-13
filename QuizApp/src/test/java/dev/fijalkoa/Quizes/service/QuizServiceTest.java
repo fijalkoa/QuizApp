@@ -1,5 +1,11 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.service;
 
+import dev.fijalkoa.Quizes.model.dto.QuizSubmissionDTO;
+import dev.fijalkoa.Quizes.model.entity.Question;
+import dev.fijalkoa.Quizes.model.entity.Quiz;
+import dev.fijalkoa.Quizes.model.entity.Result;
+import dev.fijalkoa.Quizes.model.enums.Options;
+import dev.fijalkoa.Quizes.repository.QuizRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

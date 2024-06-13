@@ -1,5 +1,7 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.controller;
 
+import dev.fijalkoa.Quizes.model.entity.Quiz;
+import dev.fijalkoa.Quizes.service.QuizService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

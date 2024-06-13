@@ -1,4 +1,4 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

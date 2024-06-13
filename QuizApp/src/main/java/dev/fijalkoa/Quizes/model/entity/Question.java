@@ -1,5 +1,6 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.model.entity;
 
+import dev.fijalkoa.Quizes.model.enums.Options;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

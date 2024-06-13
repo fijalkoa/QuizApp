@@ -1,5 +1,11 @@
-package dev.fijalkoa.Quizes;
+package dev.fijalkoa.Quizes.service;
 
+import dev.fijalkoa.Quizes.model.dto.QuizSubmissionDTO;
+import dev.fijalkoa.Quizes.model.entity.Question;
+import dev.fijalkoa.Quizes.model.entity.Quiz;
+import dev.fijalkoa.Quizes.model.entity.Result;
+import dev.fijalkoa.Quizes.model.enums.Options;
+import dev.fijalkoa.Quizes.repository.QuizRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
