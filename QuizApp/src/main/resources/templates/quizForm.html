@@ -32,7 +32,7 @@
                 <div th:each="question, questionIndex : ${quiz.questions}" class="quiz-form-card">
                     <h3 th:text="${questionIndex.index + 1 + '. ' + question.question}">Question Text</h3>
                     <ul>
-                        <li th:each="option : ${T(dev.fijalkoa.Quizes.Options).values()}">
+                        <li th:each="option : ${T(dev.fijalkoa.Quizes.model.enums.Options).values()}">
                             <input type="radio" th:id="${'option_' + option}" th:name="${'answers[' + questionIndex.index + ']'}" th:value="${option}">
                             <label th:for="${'option_' + option}" th:text="${question.options.get(option)}">Answer Text</label>
                         </li>
