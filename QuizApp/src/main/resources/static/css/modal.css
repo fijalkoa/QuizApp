@@ -1,0 +1,97 @@
+/* Modal CSS */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centered with equal left and right margins */
+    padding: 40px;
+    width: calc(100% - 40px); /* Make sure content doesn't touch the edges */
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 30px; /* Increase gap between title and form */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    padding-left: 0; /* Align title closer to the left edge */
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 30px; /* Add gap between the Name and Email fields */
+}
+
+.form-group {
+    flex: 1; /* Each field takes up equal space */
+    margin-bottom: 0; /* No bottom margin for cleaner alignment */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px; /* Smaller font size for labels */
+    color: #888; /* Gray color for labels */
+    text-align: left; /* Align the labels to the left */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.submit-btn {
+    background-color: #f06060;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 30px auto 0; /* Larger gap between fields and button */
+    text-align: center;
+}
+
+.submit-btn:hover {
+    background-color: #e04848;
+}

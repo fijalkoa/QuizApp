@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Miss You Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+        .header {
+            font-size: 18px;
+            color: #8a8a8a;
+            margin-bottom: 10px;
+        }
+
+        .header span {
+            display: block;
+            font-size: 32px;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        .reactivate-btn {
+            background-color: #E84857;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #8a8a8a;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #8a8a8a;
+            text-decoration: none;
+        }
+
+        .footer img {
+            width: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="logo-container">
+        <img src="https://i.postimg.cc/Sx4G99z6/quiz-logo-heart-icon.png"  alt="charmQuiz Logo" class="logo">
+        <span class="logo-text">charmQ</span>
+    </div>
+
+    <hr style="height:1px;border-width:0;color:white;background-color:#e0dee0">
+
+    <div class="header">
+        Your Quiz Result:
+        <span th:text="${result.result}">Test result</span>
+        <img th:src="${quiz.image}" alt="Test image" style="width: 50%; height: auto;">
+        <p th:text="'Zdobyto ' + ${result.score} + 'pkt'">Test score</p>
+    </div>
+
+    <p th:text="${result.description}">Result description</p>
+
+    <a href="https://github.com/fijalkoa/QuizApp" class="reactivate-btn">TAKE NEXT TESTS</a>
+
+    <div class="footer">
+        All rights reserved<br>
+        Made with ♥<br>
+    </div>
+</div>
+</body>
+</html>
