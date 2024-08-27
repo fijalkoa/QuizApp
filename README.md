@@ -1,16 +1,17 @@
 # Quiz Application
 
 ## Overview
-This project is a web-based quiz application built using Java, Spring Boot, Thymeleaf, and MongoDB. Users can browse available quizzes, take them, and receive results based on their answers.
+This project is a web-based quiz application built using Java, Spring Boot, Thymeleaf, and MongoDB. Users can browse available quizzes, take them, receive results based on their answers and share them via e-mail.
 
 ## Features
 - View all available quizzes
 - Take quizzes and submit answers
 - View quiz results
+- Share results via e-mail
 
 ## Technologies
 - Java
-- Spring Boot, Lombok
+- Spring Boot (Spring Web, Spring MVC, Spring Context, Spring Mail), Lombok
 - Thymeleaf, HTML, CSS
 - MongoDB
 - Maven
