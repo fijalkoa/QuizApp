@@ -45,3 +45,12 @@ Quiz description
 
 Quiz form
 ![image](https://github.com/fijalkoa/QuizApp/blob/main/previews/quiz-quizform-page.png?raw=true)
+
+Test result
+![image](https://github.com/fijalkoa/QuizApp/blob/main/previews/quiz-score-page.png?raw=true)
+
+E-mail form
+![image](https://github.com/fijalkoa/QuizApp/blob/main/previews/quiz-email-form.png?raw=true)
+
+Results shared via e-mail
+![image](https://github.com/fijalkoa/QuizApp/blob/main/previews/quiz-email.png?raw=true)
